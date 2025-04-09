@@ -1,5 +1,7 @@
 # Close-Duplicate-Tabs-on-URL-Change
-This is a Firefox addon to close duplicate tabs on URL change.
+This is a Firefox addon to close duplicate tabs on URL change, 
+that is published here:  
+https://addons.mozilla.org/en-US/firefox/addon/close-dup-tabs-on-url-change/
 
 When a new tab is opened or current tab URL changes, 
 this addon will automatically close all the tab duplicates with the same URL.
