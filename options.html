@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
+    <title>Options - Close Duplicate Tabs</title>
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css">
+    <style>
+        body {
+            padding: 10px;
+            background-color: var(--in-content-page-background, #fff);
+            color: var(--in-content-page-color, #000);
+        }
+
+        fieldset {
+            border: 1px solid var(--in-content-box-border-color, #ccc);
+        }
+
+        textarea#ignoredUrls {
+            width: 100%;
+            min-height: 12em;
+            box-sizing: border-box;
+            resize: vertical;
+            font-family: monospace;
+            background-color: var(--in-content-box-background, #fff);
+            color: var(--in-content-text-color, #000);
+            border: 1px solid var(--in-content-box-border-color, #ccc);
+        }
+
+        button#save {
+            width: auto !important;
+            display: inline-block !important;
+            padding: 5px 10px;
+            margin-top: 10px;
+            background-color: var(--in-content-button-background, #e0e0e0);
+            color: var(--in-content-button-color, #000);
+            border: 1px solid var(--in-content-button-border-color, #ccc);
+        }
+
+        button#save:hover {
+            background-color: var(--in-content-button-background-hover, #d0d0d0);
+        }
+
+        /* Dark mode adjustments */
+        @media (prefers-color-scheme: dark) {
+            textarea#ignoredUrls {
+                background-color: var(--in-content-box-background, #3a3a3e); /* Darker input bg */
+                color: var(--in-content-text-color, #d0d0d0); /* Light text */
+            }
+
+            button#save {
+                background-color: var(--in-content-button-background, #4a4a4e); /* Distinct button bg */
+                color: var(--in-content-button-color, #fff); /* White text */
+            }
+
+            button#save:hover {
+                background-color: var(--in-content-button-background-hover, #5a5a5e); /* Lighter hover */
+            }
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend><b>Ignored URLs:</b></legend>
+        <textarea 
+            id="ignoredUrls" 
+            rows="10" 
+            cols="50" 
+            placeholder="Enter URLs to be ignored here, each on a new line"
+        ></textarea>
+    </fieldset>
+    <div style="margin-top: 10px;">
+        <input type="checkbox" id="showNotifications" checked>
+        <label for="showNotifications">Show notifications</label>
+    </div>
+    <button id="save">Save</button>
+    <script src="options.js"></script>
+</body>
+</html>
