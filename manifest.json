@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Close duplicate tabs on URL change",
-  "version": "2025.4.9.1",
+  "version": "2025.4.11",
   "description": "When a new tab is opened or updated, closes existing tabs with the same URL",
   "permissions": ["tabs", "storage", "contextMenus", "notifications"],
   "background": {
