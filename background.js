@@ -122,21 +122,15 @@ browser.storage.onChanged.addListener((changes, area) => {
     }
 });
 
-// Function to update the browser action button’s appearance
-function updateButton() {
+// Function to update the browser action badge
+function updateBadge() {
     if (isActive) {
-        browser.browserAction.setIcon({
-            path: {
-                "32": "icons/addon_logo_active.svg"
-            }
-        });
+        browser.browserAction.setBadgeText({ text: "on" });
+        browser.browserAction.setBadgeBackgroundColor({ color: "#00FF00" }); // Green
         browser.browserAction.setTitle({ title: "Close duplicate tabs on URL change (Active)" });
     } else {
-        browser.browserAction.setIcon({
-            path: {
-                "32": "icons/addon_logo_inactive.svg"
-            }
-        });
+        browser.browserAction.setBadgeText({ text: "off" });
+        browser.browserAction.setBadgeBackgroundColor({ color: "#FF0000" }); // Red
         browser.browserAction.setTitle({ title: "Close duplicate tabs on URL change (Inactive)" });
     }
 }
@@ -145,7 +139,7 @@ function updateButton() {
 browser.browserAction.onClicked.addListener(() => {
     isActive = !isActive;
     //console.log("Add-on toggled to:", isActive ? "Active" : "Inactive");
-    updateButton();
+    updateBadge();
 });
 
 // Queue management functions
@@ -290,7 +284,6 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
 });
 
-
 // Clean up protected_tabs when tabs are closed
 browser.tabs.onRemoved.addListener((tabId) => {
     if (protected_tabs.has(tabId)) {
@@ -299,5 +292,5 @@ browser.tabs.onRemoved.addListener((tabId) => {
     }
 });
 
-// Initialize the button state
-updateButton();
+// Initialize the badge state
+updateBadge();
